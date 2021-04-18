@@ -14,6 +14,13 @@ export default function Home() {
       >
         Increment
       </button>
+      <button
+        onClick={() => {
+          dispatch({ type: "DECREMENT" });
+        }}
+      >
+        Decrement
+      </button>
     </div>
   );
 }
