@@ -1,3 +1,19 @@
+import { useDispatch, useSelector } from "react-redux";
+import { State, wrapper } from "../redux/store";
+
 export default function Home() {
-  return <div>hello world</div>;
+  const { count } = useSelector<State, State>((state) => state);
+  const dispatch = useDispatch();
+  return (
+    <div>
+      <div>hello world {count}</div>
+      <button
+        onClick={() => {
+          dispatch({ type: "INCREMENT" });
+        }}
+      >
+        Increment
+      </button>
+    </div>
+  );
 }
