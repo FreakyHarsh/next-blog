@@ -2,6 +2,7 @@
 import { createStore, AnyAction, Store } from 'redux';
 import { createWrapper, Context, HYDRATE } from 'next-redux-wrapper';
 import diff from 'redux-deep-diff';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 export interface State {
   count: number;
@@ -30,7 +31,7 @@ const reducer = (state: State = { count: 0 }, action: AnyAction) => {
 };
 
 // create a makeStore function
-const makeStore = (context: Context) => createStore(reducer);
+const makeStore = (context: Context) => createStore(reducer, composeWithDevTools());
 
 // export an assembled wrapper
 export const wrapper = createWrapper<Store<State>>(makeStore, { debug: true });
