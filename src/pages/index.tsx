@@ -1,4 +1,3 @@
-import { resolve } from "node:path";
 import { useDispatch, useSelector } from "react-redux";
 import { Store, AnyAction } from "redux";
 import { testAsync } from "../redux/actions";
