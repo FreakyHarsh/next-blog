@@ -1,4 +1,7 @@
+import { resolve } from "node:path";
 import { useDispatch, useSelector } from "react-redux";
+import { Store, AnyAction } from "redux";
+import { testAsync } from "../redux/actions";
 import { State, wrapper } from "../redux/store";
 
 export default function Home() {
@@ -25,6 +28,7 @@ export default function Home() {
   );
 }
 
-export const getStaticProps = wrapper.getStaticProps((context) => {
-  console.log(context.store.dispatch({ type: "INCREMENT" }));
+export const getStaticProps = wrapper.getStaticProps(async (context) => {
+  const store = context.store;
+  await store.dispatch(testAsync() as any);
 });

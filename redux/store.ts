@@ -1,8 +1,9 @@
 
-import { createStore, AnyAction, Store } from 'redux';
+import { createStore, AnyAction, Store, applyMiddleware } from 'redux';
 import { createWrapper, Context, HYDRATE } from 'next-redux-wrapper';
 import diff from 'redux-deep-diff';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
 
 export interface State {
   count: number;
@@ -30,7 +31,7 @@ const reducer = (state: State = { count: 0 }, action: AnyAction) => {
 };
 
 // create a makeStore function
-const makeStore = (context: Context) => createStore(reducer, composeWithDevTools());
+const makeStore = (context: Context) => createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
 // export an assembled wrapper
 export const wrapper = createWrapper<Store<State>>(makeStore, { debug: true });
