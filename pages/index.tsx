@@ -24,3 +24,7 @@ export default function Home() {
     </div>
   );
 }
+
+export const getStaticProps = wrapper.getStaticProps((context) => {
+  console.log(context.store.dispatch({ type: "INCREMENT" }));
+});

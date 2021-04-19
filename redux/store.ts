@@ -7,7 +7,6 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 export interface State {
   count: number;
 }
-
 // create your reducer
 const reducer = (state: State = { count: 0 }, action: AnyAction) => {
   console.log(action)
