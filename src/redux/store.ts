@@ -10,16 +10,8 @@ export interface State {
 }
 // create your reducer
 const reducer = (state: State = { count: 0 }, action: AnyAction) => {
-  console.log(action)
   switch (action.type) {
     case HYDRATE:
-      // const stateDiff = diff(state, action.payload) as any;
-      // const wasBumpedOnClient = stateDiff?.page?.[0]?.endsWith('X'); // or any other criteria
-      // return {
-      //   ...state,
-      //   ...action.payload,
-      //   page: wasBumpedOnClient ? state.page : action.payload.page, // keep existing state or use hydrated
-      // };
       return { ...state, ...action.payload };
     case 'INCREMENT':
       return { ...state, count: state.count + 1 };
