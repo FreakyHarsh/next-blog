@@ -1,4 +1,13 @@
+@import "../../styles/_variables.scss";
+
 .navbar {
-  background-color: "red";
-  color: "white";
+  background-color: $primary-color;
+  color: white;
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+  li {
+    margin: 0 1rem;
+  }
 }

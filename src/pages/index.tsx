@@ -1,15 +1,17 @@
-import { Layout } from "antd";
 import React from "react";
+import { CustomLayout } from "../components/Layout/CustomLayout";
 import { wrapper } from "../redux/store";
-
-const Home: React.FC = () => {
-  const { Header, Content, Footer } = Layout;
+interface IEvent {
+  title: string;
+  imageUrl: string;
+  description: string;
+}
+const Home: React.FC<IEvent> = (props: IEvent) => {
   return (
-    <Layout>
-      <Header>Header here</Header>
-      <Content>Content here</Content>
-      <Footer>Footer here</Footer>
-    </Layout>
+    <CustomLayout>
+      <div>This is content</div>
+      <pre>{JSON.stringify(props, null, 2)}</pre>
+    </CustomLayout>
   );
 };
 
@@ -17,4 +19,19 @@ export default Home;
 
 export const getStaticProps = wrapper.getStaticProps(async (context) => {
   const store = context.store;
+  const initialData = [
+    {
+      title: "Rcoe events",
+      imageUrl: "imageurlhere",
+      description: "some short description",
+    },
+    {
+      title: "Rcoe events",
+      imageUrl: "imageurlhere",
+      description: "some short description",
+    },
+  ];
+  return {
+    props: { events: initialData },
+  };
 });
