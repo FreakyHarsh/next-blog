@@ -1,6 +1,13 @@
+.header {
+  padding: 0;
+  height: fit-content;
+  background: green;
+  line-height: 1;
+}
 .content {
   background-color: #f0f0f0;
-  min-height: calc(100vh - 5rem);
+  // height: calc(100vh - 5rem);
+  overflow-y: scroll;
 }
 .footer {
   text-align: center;

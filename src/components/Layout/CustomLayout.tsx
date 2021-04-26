@@ -7,7 +7,7 @@ export const CustomLayout: React.FC = ({ children }) => {
   const { Header, Content, Footer } = Layout;
   return (
     <Layout>
-      <Header>
+      <Header className={styles.header}>
         <NavBar />
       </Header>
       <Content className={styles.content}>{children}</Content>
